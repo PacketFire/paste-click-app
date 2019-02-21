@@ -25,6 +25,6 @@ jobs:
         - gcloud auth activate-service-account $GCP_SERVICE_ACCOUNT_EMAIL --key-file key.json
       script:
         - npm run build
-        - gsutil -m cp -Z -r dist/* gs://$GCS_BUCKET_NAME
+        - gsutil -m cp -r dist/* gs://$GCS_BUCKET_NAME
       language: node_js
       node: 10.15.0
