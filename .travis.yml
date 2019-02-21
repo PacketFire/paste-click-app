@@ -22,7 +22,7 @@ jobs:
         - sudo apt-get install google-cloud-sdk
       before_script:
         - echo $GCP_SERVICE_ACCOUNT | base64 --decode > key.json
-        - gcloud auth activate-service-auth $GCP_SERVICE_ACCOUNT_EMAIL --key-file key.json
+        - gcloud auth activate-service-account $GCP_SERVICE_ACCOUNT_EMAIL --key-file key.json
       script:
         - npm run build
         - gsutil -m cp -Z -r dist/* gs://$GCS_BUCKET_NAME
