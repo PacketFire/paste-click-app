@@ -16,7 +16,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <BrowserRouter basename="/beta">
+      <BrowserRouter basename="/b">
         <div className={styles.app}>
           <Header />
 

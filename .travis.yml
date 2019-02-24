@@ -2,6 +2,8 @@ stages:
   - build
   - name: deploy
     if: branch = master AND type = push
+  - name: cdn
+    if: branch = master AND type = push
 
 jobs:
   include:
@@ -28,3 +30,5 @@ jobs:
         - gsutil -m cp -r dist/* gs://$GCS_BUCKET_NAME
       language: node_js
       node: 10.15.0
+    - stage: cdn
+      script: 'curl -kH "Content-Type: application/json" -H "Accept: application/json" -d "{\"urls\": [{\"url\": \"http://cdn.paste.click/b/*\"}]}" https://api.belugacdn.com/api/cdn/v2/invalidations -u "$BELUGACDN_API_USER:$BELUGACDN_API_PASSWORD" -s'
