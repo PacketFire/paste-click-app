@@ -11,7 +11,7 @@ module.exports = {
   output: {
     pathinfo: true,
     filename: 'assets/[name].[chunkhash].js',
-    publicPath: '/beta/'
+    publicPath: '/b/'
   },
   resolve: {
     extensions: ['.js', '.jsx']
