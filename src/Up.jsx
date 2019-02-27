@@ -33,7 +33,7 @@ export default class Up extends Component {
           const components = res.data.split('/');
           const objectId = components[components.length - 1];
 
-          window.location = `/beta/s/${objectId}`;
+          window.location = `/b/s/${objectId}`;
         })
         .catch(err => {
           console.error(err);
